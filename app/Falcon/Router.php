@@ -4,6 +4,7 @@ namespace Falcon;
 
 use FastRoute;
 
+
 class Router
 {
     public function setRoutes() 
@@ -42,5 +43,22 @@ class Router
             // on execute avec call_user_func_array
             echo call_user_func_array($method, $routeInfo[2]); 
         }
+        
+        switch ($routeInfo[0]) {
+            case FastRoute\Dispatcher::NOT_FOUND:
+                include 'error_404.html.twig';
+                break;
+            case FastRoute\Dispatcher::METHOD_NOT_ALLOWED:
+                $allowedMethods = $routeInfo[1];
+                // ... 405 Method Not Allowed
+                break;
+            case FastRoute\Dispatcher::FOUND:
+                $handler = $routeInfo[1];
+                $vars = $routeInfo[2];
+                // ... call $handler with $vars
+                break;
+        }
+      
     }
+
 }
