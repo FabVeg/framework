@@ -1,0 +1,45 @@
+<phpunit colors="true">
+    <php>
+        <const name="NAMESPACE_FRAMEWORK" value="Falcon"/>
+        <const name="HTTP_PORT" value="80"/>
+    </php>
+    <testsuites>
+        <testsuite name="server">
+            <file>./ServerHttpTest.php</file>
+        </testsuite>
+
+        <testsuite name="fixtures">
+            <file>./MongoDBTest.php</file>
+            <file>./FixturesCustomersTest.php</file>
+            <file>./FixturesRoomsTest.php</file>
+        </testsuite>
+
+        <testsuite name="fixtures-server">
+            <file>./MongoDBTest.php</file>
+        </testsuite>
+
+        <testsuite name="fixtures-customers">
+            <file>./FixturesCustomersTest.php</file>
+        </testsuite>
+        
+        <testsuite name="fixtures-rooms">
+            <file>./FixturesRoomsTest.php</file>
+        </testsuite>
+
+        <testsuite name="homepage">
+            <file>./HomePageTest.php</file>
+        </testsuite>
+
+        <testsuite name="errors_http">
+            <file>./ErrorsHttpTest.php</file>
+        </testsuite>
+
+        <testsuite name="booking">
+            <file>./BookingTest.php</file>       
+        </testsuite>
+
+        <testsuite name="booking-save">
+            <file>./BookingSaveTest.php</file>
+        </testsuite>
+    </testsuites>
+</phpunit>
